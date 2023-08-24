@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <title>Портфолио</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav main-nav">
+        <ul class="main-nav__list main-list">
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#home">HOME</a>
+          </li>
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#about">ABOUT</a>
+          </li>
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#skills">MY SKILLS</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <!-- Секция превью -->
+      <section class="main__home home" id="home">
+        <h1 class="home__title">Марат Ернур</h1>
+        <p class="home__subtitle">WEB-DEVELOPER, PYTHON PROGRAMMER</p>
+      </section>
+      <!-- Секция с рассказом о себе -->
+      <section class="main__about about" id="about">
+        <h2 class="about__title">ABOUT ME</h2>
+        <div class="about__info info-block">
+          <p class="info-block__text">
+            Меня зовут Ернур, мне 14 лет. Я увлечен программированием и активно изучаю Python и веб-разработку. Пройдя обучение в Kodland, я приобрел фундаментальные знания и навыки, которые готов развивать дальше. Моя цель - продолжать углубляться в мир программирования и веб-технологий, стремясь к достижению новых высот в этой области.
+          </p>
+          <img
+            class="info-block__img"
+            src="../static/img/profile.png"
+            alt="me"
+            width="250"
+            height="250"
+          />
+        </div>
+      </section>
+      <!-- Секция со скиллами -->
+      <section class="main__skills skills" id="skills">
+        <h2 class="skills__title">MY SKILLS</h2>
+        <form action="/" method="POST">
+          <ul class="skills__list skills-list">
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/python.png"
+                alt="python"
+                width="150"
+                height="150"
+              />
+              <span class="skill__info">Я прошёл курс на Kodland по Python и долгое время изучаю этот язык программирования, имею базовые знания и могу создавать игры, сайты на этом языке</span>
+              <input class="skill__button" type="submit" name="button_python" value="SHOW PROJECT">
+            </li>
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/discord.png"
+                alt="discord"
+                width="150"
+                height="150"
+              />
+              <span class="skill__info">Есть опыт в создании Discord ботов с помощью Языка Программирования Python через Client и Bot классы с базовыми функциями и возможностями</span>
+              <input class="skill__button" type="submit" name="button_discord" value="SHOW PROJECT">
+            </li>
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/html.png"
+                alt="html"
+                width="150"
+                height="150"
+              />
+              <span class="skill__info">Использую HTML для проектов с сайтами, умею работать с frond-end и back-end создавая функционирующие сайты и украшая их с помощью CSS</span>
+              <input class="skill__button" type="submit" name="button_html" value="SHOW PROJECT">
+            </li>
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/db.webp"
+                alt="SQL"
+                width="150"
+                height="150"
+              />
+              <span class="skill__info">Для работы с данными использую БД(База Данных), это позволяет ловко изменять, искать и хранить нужные данные</span>
+              <input class="skill__button" type="submit" name="button_db" value="SHOW PROJECT">
+            </li>
+          </ul>
+        </form>
+        {% if button_python%}
+          <div class="skills__project project" id="project">
+              <img class="project__img" src="../static/img/python-project.png" alt="project" width="500">
+              <a class="project__link" href="https://github.com/yernur0/energy_calculator.git">Открыть на GitHub</a>
+          </div>
+        {% endif %}
+
+        {% if button_discord%}
+          <div class="skills__project project" id="project">
+              <img class="project__img" src="../static/img/discord-project.png" alt="project" width="500">
+              <a class="project__link" href="https://github.com/yernur0/DiscordBot2.git">Открыть на GitHub</a>
+          </div>
+        {% endif %}
+
+        {% if button_html%}
+          <div class="skills__project project" id="project">
+              <img class="project__img" src="../static/img/site-project.png" alt="project" width="500">
+              <a class="project__link" href="https://github.com/yernur0/Site.git">Открыть на GitHub</a>
+          </div>
+        {% endif %}
+
+        {% if button_db%}
+          <div class="skills__project project" id="project">
+              <img class="project__img" src="../static/img/db-project.png" alt="project" width="500">
+              <a class="project__link" href="https://github.com/yernur0/diary-2.git">Открыть на GitHub</a>
+          </div>
+        {% endif %}
+      </section>
+
+      <!-- Секция с формой обратной связи -->
+      <section class="main__feedback feedback" id="feedback">
+        <h2 class="feedback__title">FEEDBACK</h2>
+        <form action="/form" method="POST" class="feedback__form form">
+          <label for="email">
+            <input type="email" class="form__input" name="email" id="email" placeholder="Введите E-mail" required>
+          </label>
+          <label for="text">
+            <textarea name="text" class="form__input" id="text" cols="70" rows="10" required placeholder="Комментарий"></textarea>
+          </label>
+          <button class="form__button" type="submit">ОТПРАВИТЬ</button>
+
+        </form>
+      </section>
+    </main>
+    <!-- Подвал для ссылок на соц-сети -->
+    <footer class="footer">
+      <div class="footer__social">
+        <a href="https://www.facebook.com/" class="footer__social-link">
+          <img src="{{ url_for('static', filename='img/facebook-icon.jpg') }}" alt="Facebook">
+          <span class="footer__social-text">Facebook</span>
+        </a>
+        <a href="https://twitter.com/" class="footer__social-link">
+          <img src="../static/img/twitter-icon.png" alt="Twitter">
+          <span class="footer__social-text">Twitter</span>
+        </a>
+        <a href="https://www.instagram.com/" class="footer__social-link">
+          <img src="../static/img/instagram-icon.png" alt="Instagram">
+          <span class="footer__social-text">Instagram</span>
+        </a>
+        <a href="https://web.telegram.org/" class="footer__social-link">
+          <img src="../static/img/telegram-icon.png" alt="Telegram">
+          <span class="footer__social-text">Telegram</span>
+        </a>
+        <div class="footer__social">
+          <!-- ... Социальные ссылки ... -->
+          <a href="{{ url_for('feedback') }}" class="footer__social-link">
+            <span class="footer__social-text">Отзывы</span>
+          </a>
+        </div>
+      </div>
+
+    </footer>
+  </body>
+</html>

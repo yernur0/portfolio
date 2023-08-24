@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>Отзывы</title>
+</head>
+<body>
+  <header class="header">
+
+  </header>
+  
+  <main class="main">
+    <section class="main__feedback feedback" id="feedback">
+      <h2 class="feedback__title">FEEDBACK</h2>
+      <div class="feedback__entries">
+        {% for entry in entries %}
+        <div class="feedback__entry">
+          <p><strong>Email:</strong> {{ entry.email }}</p>
+          <p><strong>Text:</strong> {{ entry.text }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+</body>
+</html>
